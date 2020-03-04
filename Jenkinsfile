@@ -7,13 +7,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'This is a minimal pipeline.'
-                sh "mvn -B -DskipTests clean verify"
+                sh "mvn --batch-mode --debug --errors --update-snapshots -DskipTests clean package"
             }
-            /*withMaven(maven: 'maven-3') {
-                // Run the maven build
-                sh "mvn -B -DskipTests clean verify"
-            }*/
+        }
+        stage('Test') {
+            steps {
+                withMaven(maven:'Maven 3.3.9', jdk:'JAVA8') {
+                    sh "mvn --batch-mode --debug --errors --update-snapshots clean verify sonar:sonar"
+                }
+            }
         }
     }
+
 }
