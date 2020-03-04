@@ -22,7 +22,6 @@
         <java.version>1.8</java.version>
         <springfox.version>2.9.2</springfox.version>
         <sonar.host.url>http://localhost:9000</sonar.host.url>
-        <!--<sonar.login>1428019c6bfdd8aad2656f554d604d193121a978</sonar.login>-->
         <sonar.projectName>book-accounting</sonar.projectName>
     </properties>
 

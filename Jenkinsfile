@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withMaven(maven:'Maven 3.3.9', jdk:'JAVA8') {
+                withMaven(maven:'Maven 3.3.9', jdk:'jdk8') {
                     sh "mvn --batch-mode --debug --errors --update-snapshots clean verify sonar:sonar"
                 }
             }
